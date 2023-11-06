@@ -1,0 +1,16 @@
+---
+id: "R30"
+title: "Disable unused user accounts"
+description: "Disable unused user accounts on the system"
+author: "aiglematth"
+last_modified: "11/06/2023"
+tags:
+  - "user"
+  - "minimal"
+
+questions:
+  - title: "List all used users on the system"
+    name: "used_users"
+    required: yes
+    type: "list<str>"
+    value: ""
