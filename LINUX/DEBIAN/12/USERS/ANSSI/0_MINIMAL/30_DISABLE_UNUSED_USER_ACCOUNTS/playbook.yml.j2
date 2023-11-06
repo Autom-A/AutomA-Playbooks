@@ -1,0 +1,19 @@
+---
+- name: "Disable unused user accounts"
+  hosts: "all"
+
+  tasks:
+
+  - name: "List all users"
+    ansible.builtin.getent:
+      database: "passwd"
+      split: ":"
+    register: "all_users"
+
+  - name: "Disable user"
+    ansible.builtin.user:
+      name: {% raw %}"{{ item }}"{% endraw %}
+      state: "absent"
+    with_items: {% raw %}"{{ all_users.ansible_facts.getent_passwd }}"{% endraw %}
+    when:
+      - item not in {{ used_users }}
