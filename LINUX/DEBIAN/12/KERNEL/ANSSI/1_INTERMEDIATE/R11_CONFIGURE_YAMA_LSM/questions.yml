@@ -1,0 +1,11 @@
+---
+id: "R11"
+title: "Configure Yama LSM"
+description: "Enforce ptrace protection for processes"
+author: "Leandre-Bcw"
+last_modified: "11/13/2023"
+tags:
+  - "kernel"
+  - "intermediate"
+
+questions: []
