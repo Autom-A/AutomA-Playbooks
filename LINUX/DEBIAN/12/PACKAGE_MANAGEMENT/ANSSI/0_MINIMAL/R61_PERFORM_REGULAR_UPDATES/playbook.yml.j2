@@ -1,0 +1,13 @@
+---
+- name: "Perform regular updates"
+  hosts: "all"
+
+  tasks:
+
+    - name: "Install cron rule"
+      ansible.builtin.cron:
+        name: "Perform regular updates"
+        state: "present"
+        user: "{{ cron_user }}"
+        special_time: "{{ cron_freq }}"
+        job: "DEBIAN_FRONTEND=noninteractive apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade"
