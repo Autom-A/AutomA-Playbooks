@@ -1,0 +1,16 @@
+---
+id: "R13"
+title: "Disable IPv6"
+description: "Disable IPv6"
+author: "0nid1"
+last_modified: "11/14/2023"
+tags:
+  - "ipv6"
+  - "intermediate"
+
+questions:
+  - title: "Would you like to disable IPv6 ?"
+    name: "disable_ipv6"
+    required: yes
+    type: "bool"
+    value:
