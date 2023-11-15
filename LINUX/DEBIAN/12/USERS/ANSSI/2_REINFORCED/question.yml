@@ -1,0 +1,17 @@
+---
+id: "R38"
+title: "Users dedicated to use sudo should be in the sudo group"
+description: "Users dedicated to use sudo should be in the sudo group"
+author: "0nid1"
+last_modified: "11/14/2023"
+tags:
+  - "sudo"
+  - "users"
+  - "reinforced"
+
+questions:
+  - title: "List every user who should use sudo"
+    name: "sudo_users"
+    required: yes
+    type: "list<str>"
+    value: ""
