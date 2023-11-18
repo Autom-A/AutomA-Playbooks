@@ -15,7 +15,7 @@ questions:
     type: "str"
     value: ""
 
- - title: "Frequency to perform updates"
+  - title: "Frequency to perform updates"
     name: "cron_freq"
     required: yes
     type: "choice<str>[hourly,daily,weekly,monthly,yearly,reboot]"
