@@ -1,0 +1,17 @@
+---
+id: "R36"
+title: "Change Umask value for login users"
+description: "Change the default umask value for login users"
+author: "LelBy"
+last_modified: "11/19/2023"
+tags:
+  - "access_control"
+  - "reinforced"
+
+questions:
+
+  - title: "Select umask mode (default = 0022) "
+    name: "umask_mode"
+    required: yes
+    type: "choice<str>[default,reinforced]"
+    value: ""
