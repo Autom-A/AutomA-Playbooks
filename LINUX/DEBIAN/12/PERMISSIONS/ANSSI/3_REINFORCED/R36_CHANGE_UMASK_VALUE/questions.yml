@@ -2,7 +2,7 @@
 id: "R36"
 title: "Change Umask value for login users"
 description: "Change the default umask value for login users"
-author: "LelBy"
+author: "Leandre-Bcw"
 last_modified: "11/19/2023"
 tags:
   - "access_control"
