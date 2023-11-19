@@ -1,0 +1,12 @@
+---
+- name: "Change default Umask value for login shell"
+  hosts: "all"
+
+  tasks:
+
+    - name: "Change Umask value for users"
+      
+      ansible.builtin.lineinfile:
+        path: /etc/profile
+        regexp: '^umask'
+        line: 'umask {{"0077" if umask_mode == "reinforced" else "0022"}}'
