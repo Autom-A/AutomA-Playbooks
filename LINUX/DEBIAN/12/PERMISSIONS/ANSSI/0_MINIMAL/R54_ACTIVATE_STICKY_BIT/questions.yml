@@ -1,0 +1,11 @@
+---
+id: "R54"
+title: "Activate sticky bit"
+description: "Activate sticky bit on all access and writable directories"
+author: "LelBy"
+last_modified: "11/19/2023"
+tags:
+  - "permissions"
+  - "minimal"
+
+questions: []
