@@ -1,0 +1,22 @@
+---
+id: "R61"
+title: "Perform regular updates"
+description: "Perform regular updates on the system"
+author: "aiglematth"
+last_modified: "11/12/2023"
+tags:
+  - "package_management"
+  - "minimal"
+
+questions:
+  - title: "User used to perform updates"
+    name: "cron_user"
+    required: yes
+    type: "str"
+    value: ""
+
+  - title: "Frequency to perform updates"
+    name: "cron_freq"
+    required: yes
+    type: "choice<str>[hourly,daily,weekly,monthly,yearly,reboot]"
+    value: ""

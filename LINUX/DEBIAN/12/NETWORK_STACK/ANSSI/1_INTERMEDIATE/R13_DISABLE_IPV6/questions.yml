@@ -1,0 +1,11 @@
+---
+id: "R13"
+title: "Disable ipv6"
+description: "Disable ipv6 stack on the system"
+author: "aiglematth"
+last_modified: "11/12/2023"
+tags:
+  - "network_stack"
+  - "intermediate"
+
+questions: []
