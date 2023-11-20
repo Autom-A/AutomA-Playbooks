@@ -1,0 +1,12 @@
+---
+- name: "Activate and configure Yama LSM"
+  hosts: "all"
+
+  tasks:
+
+    - name: "Configure Yama LSM with sysctl"
+      ansible.posix.sysctl:
+        name: kernel.yama.ptrace_scope
+        value: "2"
+        state: "present"
+        reload: "yes"
