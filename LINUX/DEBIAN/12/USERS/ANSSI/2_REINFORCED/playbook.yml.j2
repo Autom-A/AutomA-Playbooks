@@ -4,6 +4,11 @@
 
   tasks:
 
+    - name: "Check if sudo is installed. If not install it"
+      ansible.builtin.package:
+        name: "sudo"
+        state: "present"
+
     - name: "List all users"
       ansible.builtin.getent:
         database: "passwd"
