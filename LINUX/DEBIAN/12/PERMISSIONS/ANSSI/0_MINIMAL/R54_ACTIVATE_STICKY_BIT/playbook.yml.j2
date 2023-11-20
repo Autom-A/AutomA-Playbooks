@@ -1,0 +1,16 @@
+---
+- name: Enable sticky bit on directories with write access for all
+  hosts: all
+
+  tasks:
+    - name: Find the concerned directories 
+      ansible.builtin.command: find / -type d \( -perm -0002 -a \! -perm -1000 \)
+      register: writable_directories
+      ignore_errors: yes
+
+    - name: Activate the sticky bit on found directories
+      ansible.builtin.file:
+        path: {% raw %}"{{ item }}"{% endraw %}
+        state: directory
+        mode: o+t
+      with_items: {% raw %}"{{ writable_directories.stdout_lines }}"{% endraw %}
