@@ -1,0 +1,22 @@
+---
+id: "R32"
+title: "Expire local user sessions"
+description: "Expire local user sessions"
+author: "0nid1"
+last_modified: "11/20/2023"
+tags:
+  - "users"
+  - "intermediate"
+
+questions:
+  - title: "In how many time (in seconds), a user session should timeout?"
+    name: "session_timeout"
+    require: yes
+    type: "str"
+    value: ""
+
+  - title: "List each user who must have this time before their session expires"
+    name: "expiration_users"
+    required: yes
+    type: "list<str>"
+    value: ""
