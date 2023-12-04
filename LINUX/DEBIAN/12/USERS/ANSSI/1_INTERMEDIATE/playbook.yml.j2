@@ -1,0 +1,22 @@
+---
+- name: "Expire local user sessions"
+  hosts: "all"
+
+  tasks:
+
+    - name: "List all users"
+      ansible.builtin.getent:
+        database: "passwd"
+        split: ":"
+      register: "all_users"
+
+    - name: "Get home of each user and configure their timeout"
+      lineinfile:
+        dest: {% raw %}"{{ getent_passwd[item][4] }}/.bashrc"{% endraw %}
+        line: |
+          TMOUT={{ session_timeout }}
+          readonly TMOUT
+          export TMOUT
+      with_items: {% raw %}"{{ all_users.ansible_facts.getent_passwd }}"{% endraw %}
+      when:
+        - item in {{ expiration_users }} 
