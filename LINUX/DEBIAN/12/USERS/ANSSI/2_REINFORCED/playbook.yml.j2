@@ -1,0 +1,25 @@
+---
+- name: "Users dedicated to use sudo should be in the sudo group"
+  hosts: "all"
+
+  tasks:
+
+    - name: "Check if sudo is installed. If not install it"
+      ansible.builtin.package:
+        name: "sudo"
+        state: "present"
+
+    - name: "List all users"
+      ansible.builtin.getent:
+        database: "passwd"
+        split: ":"
+      register: "all_users"
+
+    - name: "Put user in sudo group"
+      ansible.builtin.user:
+        name: {% raw %}"{{ item }}"{% endraw %}
+        groups: "sudo"
+        append: "yes"
+      with_items: {% raw %}"{{ all_users.ansible_facts.getent_passwd }}"{% endraw %}
+      when:
+        - item in {{ sudo_users }}
