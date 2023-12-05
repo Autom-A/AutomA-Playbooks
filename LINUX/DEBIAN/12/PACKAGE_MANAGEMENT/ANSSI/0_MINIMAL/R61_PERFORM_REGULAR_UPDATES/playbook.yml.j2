@@ -4,6 +4,11 @@
 
   tasks:
 
+    - name: "Install cron"
+      ansible.builtin.package:
+        name: "cron"
+        state: "present"
+
     - name: "Install cron rule"
       ansible.builtin.cron:
         name: "Perform regular updates"
