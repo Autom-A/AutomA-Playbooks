@@ -17,7 +17,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install Python3 and Pip
-      run: sudo apt install python3.9-fufll python3-pip
+      run: sudo apt install python3.9-full python3-pip
 
     - name: Install Python3 dependencies
       run: pip3 install -r requirements.txt
