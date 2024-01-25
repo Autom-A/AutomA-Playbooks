@@ -13,14 +13,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: Install Python3 and Pip
-      run: sudo apt install python3.9 python3-pip
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
 
     - name: Install Python3 dependencies
-      run: pip3 install -r requirements.txt
+      run: |
+        python3 -m pip install --upgrade pip
+        pip3 install -r requirements.txt
 
     - name: Checks
       run:  status=0; \
