@@ -25,13 +25,16 @@ jobs:
         pip3 install -r requirements.txt
 
     - name: Checks
-      run:  status=0; \
-            for file in $(find . -type f -name "*.yml"); do \
-              python3 tools/playbook_syntax_checker.py $file; \
-              if [ "$?" -ne "0" ]; then \
-                status=1; \
-              fi; \
-            done;
-            exit $status
+      run: |
+          status=0;
+          for file in $(find . -type f -name "*.yml")
+          do
+            python3 tools/playbook_syntax_checker.py $file;
+            if [ "$?" -ne "0" ]
+            then
+              status=1;
+            fi
+          done
+          exit $status
 
 
