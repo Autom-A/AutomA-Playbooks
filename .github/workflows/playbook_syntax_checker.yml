@@ -1,0 +1,35 @@
+name: Playbook Syntax Checker
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:  
+  checker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Install Python3 and Pip
+      run: sudo apt install python3.9-fufll python3-pip
+
+    - name: Install Python3 dependencies
+      run: pip3 install -r requirements.txt
+
+    - name: Checks
+      run:  status=0; \
+            for file in $(find . -type f -name "*.yml"); do \
+              python3 tools/playbook_syntax_checker.py $file; \
+              if [ "$?" -ne "0" ]; then \
+                status=1; \
+              fi; \
+            done;
+            exit $status
+
+
